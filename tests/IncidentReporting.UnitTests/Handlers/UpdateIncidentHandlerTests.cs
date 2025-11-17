@@ -25,12 +25,13 @@ namespace IncidentReporting.UnitTests.Handlers
         public async Task Handle_Should_Return_Null_If_Incident_Not_Found()
         {
             // Arrange
-            _repoMock.Setup(r => r.GetAsync(999, It.IsAny<CancellationToken>()))
+            _repoMock.Setup(r => r.GetAsync(999, 1, It.IsAny<CancellationToken>()))
                      .ReturnsAsync((Incident?)null);
 
             var command = new UpdateIncidentCommand(
                 999,
-                new IncidentUpdateDto { Description = "test", Status = IncidentStatus.Open }
+                new IncidentUpdateDto { Description = "test", Status = IncidentStatus.Open },
+                UserId: 1
             );
 
             // Act
@@ -44,11 +45,11 @@ namespace IncidentReporting.UnitTests.Handlers
         public async Task Handle_Should_Update_Description()
         {
             // Arrange
-            var incident = new Incident("Old Title", "Old Description");
+            var incident = new Incident("Old Title", "Old Description", userId: 1);
 
             typeof(Incident).GetProperty("Id")!.SetValue(incident, 1);
 
-            _repoMock.Setup(r => r.GetAsync(1, It.IsAny<CancellationToken>()))
+            _repoMock.Setup(r => r.GetAsync(1, 1, It.IsAny<CancellationToken>()))
                      .ReturnsAsync(incident);
 
             var updateDto = new IncidentUpdateDto
@@ -57,7 +58,7 @@ namespace IncidentReporting.UnitTests.Handlers
                 Status = IncidentStatus.Open
             };
 
-            var command = new UpdateIncidentCommand(1, updateDto);
+            var command = new UpdateIncidentCommand(1, updateDto, UserId: 1);
 
             // Act
             var result = await _handler.Handle(command, CancellationToken.None);
@@ -74,10 +75,10 @@ namespace IncidentReporting.UnitTests.Handlers
         public async Task Handle_Should_Start_Progress()
         {
             // Arrange
-            var incident = new Incident("Test", "Desc");
+            var incident = new Incident("Test", "Desc", userId: 1);
             typeof(Incident).GetProperty("Id")!.SetValue(incident, 2);
 
-            _repoMock.Setup(r => r.GetAsync(2, It.IsAny<CancellationToken>()))
+            _repoMock.Setup(r => r.GetAsync(2, 1, It.IsAny<CancellationToken>()))
                      .ReturnsAsync(incident);
 
             var dto = new IncidentUpdateDto
@@ -85,7 +86,7 @@ namespace IncidentReporting.UnitTests.Handlers
                 Status = IncidentStatus.InProgress
             };
 
-            var command = new UpdateIncidentCommand(2, dto);
+            var command = new UpdateIncidentCommand(2, dto, UserId: 1);
 
             // Act
             var result = await _handler.Handle(command, CancellationToken.None);
@@ -99,10 +100,10 @@ namespace IncidentReporting.UnitTests.Handlers
         public async Task Handle_Should_Close_Incident()
         {
             // Arrange
-            var incident = new Incident("Test", "Desc");
+            var incident = new Incident("Test", "Desc", userId: 1);
             typeof(Incident).GetProperty("Id")!.SetValue(incident, 3);
 
-            _repoMock.Setup(r => r.GetAsync(3, It.IsAny<CancellationToken>()))
+            _repoMock.Setup(r => r.GetAsync(3, 1, It.IsAny<CancellationToken>()))
                      .ReturnsAsync(incident);
 
             var dto = new IncidentUpdateDto
@@ -111,7 +112,7 @@ namespace IncidentReporting.UnitTests.Handlers
                 Resolution = "Issue Fixed"
             };
 
-            var command = new UpdateIncidentCommand(3, dto);
+            var command = new UpdateIncidentCommand(3, dto, UserId: 1);
 
             // Act
             var result = await _handler.Handle(command, CancellationToken.None);
@@ -130,13 +131,13 @@ namespace IncidentReporting.UnitTests.Handlers
         public async Task Handle_Should_Reopen_Incident()
         {
             // Arrange
-            var incident = new Incident("Test", "Desc");
+            var incident = new Incident("Test", "Desc", userId: 1);
             typeof(Incident).GetProperty("Id")!.SetValue(incident, 4);
 
             // Move to closed state first
             incident.Close("done");
 
-            _repoMock.Setup(r => r.GetAsync(4, It.IsAny<CancellationToken>()))
+            _repoMock.Setup(r => r.GetAsync(4, 1, It.IsAny<CancellationToken>()))
                      .ReturnsAsync(incident);
 
             var dto = new IncidentUpdateDto
@@ -144,7 +145,7 @@ namespace IncidentReporting.UnitTests.Handlers
                 Status = IncidentStatus.Open
             };
 
-            var command = new UpdateIncidentCommand(4, dto);
+            var command = new UpdateIncidentCommand(4, dto, UserId: 1);
 
             // Act
             var result = await _handler.Handle(command, CancellationToken.None);

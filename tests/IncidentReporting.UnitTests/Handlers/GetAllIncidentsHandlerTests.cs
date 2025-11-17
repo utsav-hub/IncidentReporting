@@ -26,10 +26,10 @@ namespace IncidentReporting.UnitTests.Handlers
         public async Task Handle_Should_Return_Empty_List_When_No_Incidents()
         {
             // Arrange
-            _repoMock.Setup(r => r.GetAllAsync(It.IsAny<CancellationToken>()))
+            _repoMock.Setup(r => r.GetAllByUserIdAsync(It.IsAny<int>(), It.IsAny<CancellationToken>()))
                      .ReturnsAsync(new List<Incident>());
 
-            var query = new GetAllIncidentsQuery();
+            var query = new GetAllIncidentsQuery(UserId: 1);
 
             // Act
             var result = await _handler.Handle(query, CancellationToken.None);
@@ -38,25 +38,25 @@ namespace IncidentReporting.UnitTests.Handlers
             Assert.NotNull(result);
             Assert.Empty(result);
 
-            _repoMock.Verify(r => r.GetAllAsync(It.IsAny<CancellationToken>()), Times.Once);
+            _repoMock.Verify(r => r.GetAllByUserIdAsync(It.IsAny<int>(), It.IsAny<CancellationToken>()), Times.Once);
         }
 
         [Fact]
         public async Task Handle_Should_Return_All_Incidents()
         {
             // Arrange
-            var incident1 = new Incident("Server Down", "Critical failure");
+            var incident1 = new Incident("Server Down", "Critical failure", userId: 1);
             typeof(Incident).GetProperty("Id")!.SetValue(incident1, 1);
 
-            var incident2 = new Incident("Email Issue", "Cannot send emails");
+            var incident2 = new Incident("Email Issue", "Cannot send emails", userId: 1);
             typeof(Incident).GetProperty("Id")!.SetValue(incident2, 2);
 
             var list = new List<Incident> { incident1, incident2 };
 
-            _repoMock.Setup(r => r.GetAllAsync(It.IsAny<CancellationToken>()))
+            _repoMock.Setup(r => r.GetAllByUserIdAsync(It.IsAny<int>(), It.IsAny<CancellationToken>()))
                      .ReturnsAsync(list);
 
-            var query = new GetAllIncidentsQuery();
+            var query = new GetAllIncidentsQuery(UserId: 1);
 
             // Act
             var result = await _handler.Handle(query, CancellationToken.None);
@@ -68,7 +68,7 @@ namespace IncidentReporting.UnitTests.Handlers
             Assert.Contains(result, x => x.Id == 1 && x.Title == "Server Down");
             Assert.Contains(result, x => x.Id == 2 && x.Title == "Email Issue");
 
-            _repoMock.Verify(r => r.GetAllAsync(It.IsAny<CancellationToken>()), Times.Once);
+            _repoMock.Verify(r => r.GetAllByUserIdAsync(It.IsAny<int>(), It.IsAny<CancellationToken>()), Times.Once);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace IncidentReporting.UnitTests.Domain
         [Fact]
         public void New_Incident_Should_Start_In_Open_State()
         {
-            var incident = new Incident("Test", "Description");
+            var incident = new Incident("Test", "Description", userId: 1);
 
             Assert.Equal(IncidentStatus.Open, incident.Status);
         }
@@ -17,7 +17,7 @@ namespace IncidentReporting.UnitTests.Domain
         [Fact]
         public void Should_Move_From_Open_To_InProgress()
         {
-            var incident = new Incident("Test", "Description");
+            var incident = new Incident("Test", "Description", userId: 1);
 
             incident.StartProgress();
 
@@ -27,7 +27,7 @@ namespace IncidentReporting.UnitTests.Domain
         [Fact]
         public void Should_Move_From_InProgress_To_Closed()
         {
-            var incident = new Incident("Test", "Description");
+            var incident = new Incident("Test", "Description", userId: 1);
 
             incident.StartProgress();       // Open -> InProgress
             incident.Close("Resolved");     // InProgress -> Closed
@@ -39,7 +39,7 @@ namespace IncidentReporting.UnitTests.Domain
         [Fact]
         public void Should_Reopen_From_Closed()
         {
-            var incident = new Incident("Test", "Description");
+            var incident = new Incident("Test", "Description", userId: 1);
 
             incident.StartProgress();
             incident.Close("Done");
@@ -51,7 +51,7 @@ namespace IncidentReporting.UnitTests.Domain
         [Fact]
         public void Should_Throw_On_Invalid_Transition_Open_To_Closed_Without_Closing()
         {
-            var incident = new Incident("Test", "Description");
+            var incident = new Incident("Test", "Description", userId: 1);
 
             // ❗ Directly firing Close is valid in your configuration
             // because Open → Closed is permitted.
@@ -71,7 +71,7 @@ namespace IncidentReporting.UnitTests.Domain
         [Fact]
         public void Should_Update_UpdatedAt_When_State_Changes()
         {
-            var incident = new Incident("Test", "Description");
+            var incident = new Incident("Test", "Description", userId: 1);
 
             var before = incident.UpdatedAt;
 

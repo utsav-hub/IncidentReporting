@@ -24,10 +24,10 @@ namespace IncidentReporting.UnitTests.Handlers
         public async Task Handle_Should_Return_False_If_Incident_Not_Found()
         {
             // Arrange
-            _repoMock.Setup(r => r.GetAsync(111, It.IsAny<CancellationToken>()))
+            _repoMock.Setup(r => r.GetAsync(111, 1, It.IsAny<CancellationToken>()))
                      .ReturnsAsync((Incident?)null);
 
-            var command = new DeleteIncidentCommand(111);
+            var command = new DeleteIncidentCommand(111, UserId: 1);
 
             // Act
             var result = await _handler.Handle(command, CancellationToken.None);
@@ -42,13 +42,13 @@ namespace IncidentReporting.UnitTests.Handlers
         public async Task Handle_Should_Delete_Existing_Incident()
         {
             // Arrange
-            var incident = new Incident("Test", "Desc");
+            var incident = new Incident("Test", "Desc", userId: 1);
             typeof(Incident).GetProperty("Id")!.SetValue(incident, 1);
 
-            _repoMock.Setup(r => r.GetAsync(1, It.IsAny<CancellationToken>()))
+            _repoMock.Setup(r => r.GetAsync(1, 1, It.IsAny<CancellationToken>()))
                      .ReturnsAsync(incident);
 
-            var command = new DeleteIncidentCommand(1);
+            var command = new DeleteIncidentCommand(1, UserId: 1);
 
             // Act
             var result = await _handler.Handle(command, CancellationToken.None);

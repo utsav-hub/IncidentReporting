@@ -24,10 +24,10 @@ namespace IncidentReporting.UnitTests.Handlers
         public async Task Handle_Should_Return_Null_When_Not_Found()
         {
             // Arrange
-            _repoMock.Setup(r => r.GetAsync(100, It.IsAny<CancellationToken>()))
+            _repoMock.Setup(r => r.GetAsync(100, 1, It.IsAny<CancellationToken>()))
                      .ReturnsAsync((Incident?)null);
 
-            var query = new GetIncidentByIdQuery(100);
+            var query = new GetIncidentByIdQuery(100, UserId: 1);
 
             // Act
             var result = await _handler.Handle(query, CancellationToken.None);
@@ -35,20 +35,20 @@ namespace IncidentReporting.UnitTests.Handlers
             // Assert
             Assert.Null(result);
 
-            _repoMock.Verify(r => r.GetAsync(100, It.IsAny<CancellationToken>()), Times.Once);
+            _repoMock.Verify(r => r.GetAsync(100, 1, It.IsAny<CancellationToken>()), Times.Once);
         }
 
         [Fact]
         public async Task Handle_Should_Return_IncidentResponse_When_Found()
         {
             // Arrange
-            var incident = new Incident("Server Down", "Critical outage");
+            var incident = new Incident("Server Down", "Critical outage", userId: 1);
             typeof(Incident).GetProperty("Id")!.SetValue(incident, 1);
 
-            _repoMock.Setup(r => r.GetAsync(1, It.IsAny<CancellationToken>()))
+            _repoMock.Setup(r => r.GetAsync(1, 1, It.IsAny<CancellationToken>()))
                      .ReturnsAsync(incident);
 
-            var query = new GetIncidentByIdQuery(1);
+            var query = new GetIncidentByIdQuery(1, UserId: 1);
 
             // Act
             var result = await _handler.Handle(query, CancellationToken.None);
@@ -60,7 +60,7 @@ namespace IncidentReporting.UnitTests.Handlers
             Assert.Equal("Critical outage", result.Description);
             Assert.Equal(IncidentStatus.Open, result.Status);
 
-            _repoMock.Verify(r => r.GetAsync(1, It.IsAny<CancellationToken>()), Times.Once);
+            _repoMock.Verify(r => r.GetAsync(1, 1, It.IsAny<CancellationToken>()), Times.Once);
         }
     }
 }

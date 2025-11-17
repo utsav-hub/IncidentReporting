@@ -24,7 +24,7 @@ namespace IncidentReporting.UnitTests.Validators
                 Description = "Some description"
             };
 
-            var command = new CreateIncidentCommand(dto);
+            var command = new CreateIncidentCommand(dto, UserId: 1);
 
             var result = _validator.TestValidate(command);
 
@@ -34,7 +34,7 @@ namespace IncidentReporting.UnitTests.Validators
         [Fact]
         public void Should_Fail_When_Dto_Is_Null()
         {
-            var command = new CreateIncidentCommand(null!);
+            var command = new CreateIncidentCommand(null!, UserId: 1);
 
             var result = _validator.TestValidate(command);
 
@@ -50,7 +50,7 @@ namespace IncidentReporting.UnitTests.Validators
                 Description = "Desc"
             };
 
-            var command = new CreateIncidentCommand(dto);
+            var command = new CreateIncidentCommand(dto, UserId: 1);
 
             var result = _validator.TestValidate(command);
 
@@ -65,7 +65,7 @@ namespace IncidentReporting.UnitTests.Validators
                 Title = new string('A', 201)
             };
 
-            var command = new CreateIncidentCommand(dto);
+            var command = new CreateIncidentCommand(dto, UserId: 1);
 
             var result = _validator.TestValidate(command);
 
@@ -81,7 +81,7 @@ namespace IncidentReporting.UnitTests.Validators
                 Description = new string('B', 1001) // limit 1000
             };
 
-            var command = new CreateIncidentCommand(dto);
+            var command = new CreateIncidentCommand(dto, UserId: 1);
 
             var result = _validator.TestValidate(command);
 

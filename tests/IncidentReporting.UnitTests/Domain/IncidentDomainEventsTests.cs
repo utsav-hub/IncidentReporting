@@ -10,7 +10,7 @@ namespace IncidentReporting.UnitTests.Domain
         public void Close_Should_Raise_IncidentClosedEvent()
         {
             // Arrange
-            var incident = new Incident("Test", "Test Description");
+            var incident = new Incident("Test", "Test Description", userId: 1);
             typeof(Incident).GetProperty("Id")!.SetValue(incident, 100);
 
             // Act
@@ -33,7 +33,7 @@ namespace IncidentReporting.UnitTests.Domain
         [Fact]
         public void PopDomainEvents_Should_Clear_Events()
         {
-            var incident = new Incident("Test", "Test Description");
+            var incident = new Incident("Test", "Test Description", userId: 1);
             typeof(Incident).GetProperty("Id")!.SetValue(incident, 200);
 
             // Fire Close → adds domain event
@@ -55,7 +55,7 @@ namespace IncidentReporting.UnitTests.Domain
         [Fact]
         public void StartProgress_Should_Not_Raise_Event()
         {
-            var incident = new Incident("Test", "Test Description");
+            var incident = new Incident("Test", "Test Description", userId: 1);
 
             incident.StartProgress();
 
@@ -65,7 +65,7 @@ namespace IncidentReporting.UnitTests.Domain
         [Fact]
         public void Reopen_Should_Not_Raise_Event_By_Default()
         {
-            var incident = new Incident("Test", "Desc");
+            var incident = new Incident("Test", "Desc", userId: 1);
 
             incident.StartProgress();
             incident.Close("Done");

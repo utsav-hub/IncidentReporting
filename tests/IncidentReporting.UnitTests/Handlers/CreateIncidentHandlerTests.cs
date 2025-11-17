@@ -31,7 +31,7 @@ namespace IncidentReporting.UnitTests.Handlers
                 Description = "Cannot access internet"
             };
 
-            var command = new CreateIncidentCommand(dto);
+            var command = new CreateIncidentCommand(dto, UserId: 1);
 
             // Setup repo to assign Id when adding
             _repoMock.Setup(r => r.AddAsync(It.IsAny<Incident>(), It.IsAny<CancellationToken>()))
