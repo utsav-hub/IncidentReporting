@@ -1,9 +1,11 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using MediatR;
-using IncidentReporting.Infrastructure;
-using IncidentReporting.Application.Requests;
 using IncidentReporting.Api.Middleware;
+using IncidentReporting.Application.Requests;
+using IncidentReporting.Infrastructure;
+using IncidentReporting.Infrastructure.Data;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,6 +53,13 @@ builder.Services.AddFluentValidationAutoValidation();
 // --------------------------------------------------------
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
+}
+
 
 // Use global exception middleware (handles validation, concurrency, etc.)
 app.UseMiddleware<ExceptionMiddleware>();
