@@ -1,4 +1,6 @@
+using System.Security.Claims;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using IncidentReporting.Application.DTOs;
 using IncidentReporting.Application.Requests;
@@ -7,6 +9,7 @@ namespace IncidentReporting.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class IncidentsController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -16,13 +19,25 @@ namespace IncidentReporting.Api.Controllers
             _mediator = mediator;
         }
 
+        // Helper method to get current user ID from JWT claims
+        private int GetCurrentUserId()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out var userId))
+            {
+                throw new UnauthorizedAccessException("Invalid user ID in token");
+            }
+            return userId;
+        }
+
         // --------------------------------------------------------
         // GET: api/incidents
         // --------------------------------------------------------
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var result = await _mediator.Send(new GetAllIncidentsQuery());
+            var userId = GetCurrentUserId();
+            var result = await _mediator.Send(new GetAllIncidentsQuery(userId));
             return Ok(result);
         }
 
@@ -32,7 +47,8 @@ namespace IncidentReporting.Api.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var result = await _mediator.Send(new GetIncidentByIdQuery(id));
+            var userId = GetCurrentUserId();
+            var result = await _mediator.Send(new GetIncidentByIdQuery(id, userId));
 
             if (result == null)
                 return NotFound();
@@ -46,7 +62,8 @@ namespace IncidentReporting.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] IncidentCreateDto dto)
         {
-            var result = await _mediator.Send(new CreateIncidentCommand(dto));
+            var userId = GetCurrentUserId();
+            var result = await _mediator.Send(new CreateIncidentCommand(dto, userId));
 
             return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
         }
@@ -57,7 +74,8 @@ namespace IncidentReporting.Api.Controllers
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Update(int id, [FromBody] IncidentUpdateDto dto)
         {
-            var result = await _mediator.Send(new UpdateIncidentCommand(id, dto));
+            var userId = GetCurrentUserId();
+            var result = await _mediator.Send(new UpdateIncidentCommand(id, dto, userId));
 
             if (result == null)
                 return NotFound();
@@ -71,7 +89,8 @@ namespace IncidentReporting.Api.Controllers
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var deleted = await _mediator.Send(new DeleteIncidentCommand(id));
+            var userId = GetCurrentUserId();
+            var deleted = await _mediator.Send(new DeleteIncidentCommand(id, userId));
 
             if (!deleted)
                 return NotFound();

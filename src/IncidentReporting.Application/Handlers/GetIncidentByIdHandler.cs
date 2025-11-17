@@ -16,7 +16,8 @@ namespace IncidentReporting.Application.Handlers
 
         public async Task<IncidentResponseDto?> Handle(GetIncidentByIdQuery request, CancellationToken ct)
         {
-            var incident = await _repo.GetAsync(request.Id, ct);
+            // Get incident only if it belongs to the user
+            var incident = await _repo.GetAsync(request.Id, request.UserId, ct);
 
             if (incident == null)
                 return null;
@@ -26,6 +27,8 @@ namespace IncidentReporting.Application.Handlers
                 Id = incident.Id,
                 Title = incident.Title,
                 Description = incident.Description,
+                CategoryId = incident.CategoryId,
+                CategoryName = incident.Category?.Name,
                 Status = incident.Status,
                 Resolution = incident.Resolution,
                 CreatedAt = incident.CreatedAt,

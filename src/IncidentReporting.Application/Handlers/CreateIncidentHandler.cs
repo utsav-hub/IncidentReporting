@@ -19,7 +19,8 @@ namespace IncidentReporting.Application.Handlers
         {
             var dto = request.Dto;
 
-            var incident = new Incident(dto.Title, dto.Description);
+            // Create incident with user ID
+            var incident = new Incident(dto.Title, dto.Description, request.UserId, dto.CategoryId);
 
             await _repo.AddAsync(incident, ct);
             await _repo.SaveChangesAsync(ct);
@@ -29,6 +30,8 @@ namespace IncidentReporting.Application.Handlers
                 Id = incident.Id,
                 Title = incident.Title,
                 Description = incident.Description,
+                CategoryId = incident.CategoryId,
+                CategoryName = incident.Category?.Name,
                 Status = incident.Status,
                 Resolution = incident.Resolution,
                 CreatedAt = incident.CreatedAt,

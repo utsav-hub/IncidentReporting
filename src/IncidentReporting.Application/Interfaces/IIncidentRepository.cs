@@ -11,7 +11,11 @@ namespace IncidentReporting.Application.Interfaces
     {
         Task<Incident?> GetAsync(int id, CancellationToken cancellationToken = default);
 
+        Task<Incident?> GetAsync(int id, int userId, CancellationToken cancellationToken = default);
+
         Task<List<Incident>> GetAllAsync(CancellationToken cancellationToken = default);
+
+        Task<List<Incident>> GetAllByUserIdAsync(int userId, CancellationToken cancellationToken = default);
 
         Task AddAsync(Incident incident, CancellationToken cancellationToken = default);
 

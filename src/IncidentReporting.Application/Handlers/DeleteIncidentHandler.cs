@@ -15,7 +15,8 @@ namespace IncidentReporting.Application.Handlers
 
         public async Task<bool> Handle(DeleteIncidentCommand request, CancellationToken ct)
         {
-            var incident = await _repo.GetAsync(request.Id, ct);
+            // Get incident only if it belongs to the user
+            var incident = await _repo.GetAsync(request.Id, request.UserId, ct);
 
             if (incident == null)
                 return false;

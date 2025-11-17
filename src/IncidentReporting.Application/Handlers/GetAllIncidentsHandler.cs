@@ -16,13 +16,16 @@ namespace IncidentReporting.Application.Handlers
 
         public async Task<List<IncidentResponseDto>> Handle(GetAllIncidentsQuery request, CancellationToken ct)
         {
-            var incidents = await _repo.GetAllAsync(ct);
+            // Get incidents only for the specified user
+            var incidents = await _repo.GetAllByUserIdAsync(request.UserId, ct);
 
             return incidents.Select(incident => new IncidentResponseDto
             {
                 Id = incident.Id,
                 Title = incident.Title,
                 Description = incident.Description,
+                CategoryId = incident.CategoryId,
+                CategoryName = incident.Category?.Name,
                 Status = incident.Status,
                 Resolution = incident.Resolution,
                 CreatedAt = incident.CreatedAt,

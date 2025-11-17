@@ -20,6 +20,8 @@ namespace IncidentReporting.Infrastructure.Data
 
         public DbSet<Incident> Incidents => Set<Incident>();
         public DbSet<IncidentHistory> IncidentHistories => Set<IncidentHistory>();
+        public DbSet<Category> Categories => Set<Category>();
+        public DbSet<User> Users => Set<User>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

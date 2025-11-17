@@ -21,12 +21,30 @@ namespace IncidentReporting.Infrastructure.Repositories
         public async Task<Incident?> GetAsync(int id, CancellationToken cancellationToken = default)
         {
             return await _context.Incidents
+                .Include(i => i.Category)
                 .FirstOrDefaultAsync(i => i.Id == id, cancellationToken);
+        }
+
+        public async Task<Incident?> GetAsync(int id, int userId, CancellationToken cancellationToken = default)
+        {
+            return await _context.Incidents
+                .Include(i => i.Category)
+                .FirstOrDefaultAsync(i => i.Id == id && i.UserId == userId, cancellationToken);
         }
 
         public async Task<List<Incident>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             return await _context.Incidents
+                .Include(i => i.Category)
+                .OrderByDescending(i => i.CreatedAt)
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<Incident>> GetAllByUserIdAsync(int userId, CancellationToken cancellationToken = default)
+        {
+            return await _context.Incidents
+                .Include(i => i.Category)
+                .Where(i => i.UserId == userId)
                 .OrderByDescending(i => i.CreatedAt)
                 .ToListAsync(cancellationToken);
         }

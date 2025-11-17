@@ -35,6 +35,15 @@ namespace IncidentReporting.Domain.Entities
 
         public string? Description { get; private set; }
 
+        public int? CategoryId { get; private set; }
+
+        public Category? Category { get; private set; }
+
+        [Required]
+        public int UserId { get; private set; }
+
+        public User? User { get; private set; }
+
         public IncidentStatus Status { get; private set; } = IncidentStatus.Open;
 
         public string? Resolution { get; private set; }
@@ -52,10 +61,12 @@ namespace IncidentReporting.Domain.Entities
 
         public Incident() { } // EF Core
 
-        public Incident(string title, string? description)
+        public Incident(string title, string? description, int userId, int? categoryId = null)
         {
             Title = title;
             Description = description;
+            UserId = userId;
+            CategoryId = categoryId;
             Status = IncidentStatus.Open;
             CreatedAt = DateTime.UtcNow;
 

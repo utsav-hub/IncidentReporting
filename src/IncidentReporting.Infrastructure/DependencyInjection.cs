@@ -30,6 +30,9 @@ namespace IncidentReporting.Infrastructure
             services.AddScoped<IIncidentRepository, IncidentRepository>();
             services.AddScoped<IIncidentHistoryRepository, IncidentHistoryRepository>();
 
+            // Service registrations
+            services.AddScoped<Application.Interfaces.IAuthService, Services.AuthService>();
+
             return services;
         }
     }

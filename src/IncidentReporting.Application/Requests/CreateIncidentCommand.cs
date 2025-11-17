@@ -3,6 +3,6 @@ using IncidentReporting.Application.DTOs;
 
 namespace IncidentReporting.Application.Requests
 {
-    public record CreateIncidentCommand(IncidentCreateDto Dto)
+    public record CreateIncidentCommand(IncidentCreateDto Dto, int UserId)
         : IRequest<IncidentResponseDto>;
 }
