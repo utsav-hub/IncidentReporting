@@ -1,0 +1,354 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Api\\IncidentReporting.Api.csproj": {}
+  },
+  "projects": {
+    "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Api\\IncidentReporting.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Api\\IncidentReporting.Api.csproj",
+        "projectName": "IncidentReporting.Api",
+        "projectPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Api\\IncidentReporting.Api.csproj",
+        "packagesPath": "C:\\Users\\UTSAV\\.nuget\\packages\\",
+        "outputPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\UTSAV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Application\\IncidentReporting.Application.csproj": {
+                "projectPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Application\\IncidentReporting.Application.csproj"
+              },
+              "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Domain\\IncidentReporting.Domain.csproj": {
+                "projectPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Domain\\IncidentReporting.Domain.csproj"
+              },
+              "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Infrastructure\\IncidentReporting.Infrastructure.csproj": {
+                "projectPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Infrastructure\\IncidentReporting.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.9.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Application\\IncidentReporting.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Application\\IncidentReporting.Application.csproj",
+        "projectName": "IncidentReporting.Application",
+        "projectPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Application\\IncidentReporting.Application.csproj",
+        "packagesPath": "C:\\Users\\UTSAV\\.nuget\\packages\\",
+        "outputPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\UTSAV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Domain\\IncidentReporting.Domain.csproj": {
+                "projectPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Domain\\IncidentReporting.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.7.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.7.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Domain\\IncidentReporting.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Domain\\IncidentReporting.Domain.csproj",
+        "projectName": "IncidentReporting.Domain",
+        "projectPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Domain\\IncidentReporting.Domain.csproj",
+        "packagesPath": "C:\\Users\\UTSAV\\.nuget\\packages\\",
+        "outputPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\UTSAV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Stateless": {
+              "target": "Package",
+              "version": "[5.20.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Infrastructure\\IncidentReporting.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Infrastructure\\IncidentReporting.Infrastructure.csproj",
+        "projectName": "IncidentReporting.Infrastructure",
+        "projectPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Infrastructure\\IncidentReporting.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\UTSAV\\.nuget\\packages\\",
+        "outputPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\UTSAV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Application\\IncidentReporting.Application.csproj": {
+                "projectPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Application\\IncidentReporting.Application.csproj"
+              },
+              "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Domain\\IncidentReporting.Domain.csproj": {
+                "projectPath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Domain\\IncidentReporting.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

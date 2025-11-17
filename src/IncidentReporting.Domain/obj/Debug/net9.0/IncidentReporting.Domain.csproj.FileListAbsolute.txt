@@ -1,0 +1,5 @@
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\IncidentReporting.Domain.csproj.AssemblyReference.cache
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\IncidentReporting.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\IncidentReporting.Domain.AssemblyInfoInputs.cache
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\IncidentReporting.Domain.AssemblyInfo.cs
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\IncidentReporting.Domain.csproj.CoreCompileInputs.cache

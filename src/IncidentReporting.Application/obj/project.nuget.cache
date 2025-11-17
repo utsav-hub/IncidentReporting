@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "78WD/k6tZXg=",
+  "success": true,
+  "projectFilePath": "D:\\Utsav\\Projects\\IncidentReportingSystem\\src\\src\\IncidentReporting.Application\\IncidentReporting.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\UTSAV\\.nuget\\packages\\fluentvalidation\\11.7.0\\fluentvalidation.11.7.0.nupkg.sha512",
+    "C:\\Users\\UTSAV\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.7.0\\fluentvalidation.dependencyinjectionextensions.11.7.0.nupkg.sha512",
+    "C:\\Users\\UTSAV\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\UTSAV\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\UTSAV\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\UTSAV\\.nuget\\packages\\stateless\\5.20.0\\stateless.5.20.0.nupkg.sha512"
+  ],
+  "logs": []
+}
