@@ -28,6 +28,7 @@ namespace IncidentReporting.Infrastructure
 
             // Repository registrations
             services.AddScoped<IIncidentRepository, IncidentRepository>();
+            services.AddScoped<IIncidentHistoryRepository, IncidentHistoryRepository>();
 
             return services;
         }

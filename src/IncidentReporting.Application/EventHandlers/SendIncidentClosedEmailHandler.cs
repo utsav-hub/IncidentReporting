@@ -1,19 +1,14 @@
 using MediatR;
-using IncidentReporting.Domain.DomainEvents;
+using IncidentReporting.Application.Notifications;
 
-namespace IncidentReporting.Application.EventHandlers
+public class SendIncidentClosedEmailHandler 
+    : INotificationHandler<IncidentClosedNotification>
 {
-    /// <summary>
-    /// Mock email notification handler.
-    /// In a real system, you'd inject IEmailService and send a real email.
-    /// </summary>
-    public class SendIncidentClosedEmailHandler : INotificationHandler<IncidentClosedEvent>
+    public Task Handle(IncidentClosedNotification notification, CancellationToken cancellationToken)
     {
-        public Task Handle(IncidentClosedEvent notification, CancellationToken cancellationToken)
-        {
-            Console.WriteLine($"[EMAIL MOCK] Incident {notification.IncidentId} was closed. Resolution: {notification.Resolution}");
+        var evt = notification.DomainEvent;
 
-            return Task.CompletedTask;
-        }
+        // use evt.IncidentId, evt.Resolution, etc.
+        return Task.CompletedTask;
     }
 }

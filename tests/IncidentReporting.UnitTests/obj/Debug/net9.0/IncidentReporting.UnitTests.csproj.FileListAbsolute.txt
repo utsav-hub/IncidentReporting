@@ -102,3 +102,15 @@ D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\
 D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\obj\Debug\net9.0\IncidentReporting.UnitTests.pdb
 D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\obj\Debug\net9.0\IncidentReporting.UnitTests.genruntimeconfig.cache
 D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\obj\Debug\net9.0\ref\IncidentReporting.UnitTests.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\obj\Debug\net9.0\IncidentReporting.UnitTests.sourcelink.json
+D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\bin\Debug\net9.0\.msCoverageSourceRootsMapping_IncidentReporting.UnitTests
+D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\bin\Debug\net9.0\CoverletSourceRootsMapping_IncidentReporting.UnitTests
+D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\bin\Debug\net9.0\MediatR.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\bin\Debug\net9.0\MediatR.Contracts.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\bin\Debug\net9.0\Stateless.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\bin\Debug\net9.0\IncidentReporting.Application.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\bin\Debug\net9.0\IncidentReporting.Domain.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\bin\Debug\net9.0\IncidentReporting.Domain.pdb
+D:\Utsav\Projects\IncidentReportingSystem\src\tests\IncidentReporting.UnitTests\bin\Debug\net9.0\IncidentReporting.Application.pdb

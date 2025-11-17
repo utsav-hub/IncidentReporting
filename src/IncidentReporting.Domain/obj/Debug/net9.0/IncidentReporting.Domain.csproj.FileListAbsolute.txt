@@ -3,3 +3,11 @@ D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\D
 D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\IncidentReporting.Domain.AssemblyInfoInputs.cache
 D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\IncidentReporting.Domain.AssemblyInfo.cs
 D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\IncidentReporting.Domain.csproj.CoreCompileInputs.cache
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\IncidentReporting.Domain.sourcelink.json
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\bin\Debug\net9.0\IncidentReporting.Domain.deps.json
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\bin\Debug\net9.0\IncidentReporting.Domain.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\bin\Debug\net9.0\IncidentReporting.Domain.pdb
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\IncidentReporting.Domain.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\refint\IncidentReporting.Domain.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\IncidentReporting.Domain.pdb
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Domain\obj\Debug\net9.0\ref\IncidentReporting.Domain.dll

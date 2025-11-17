@@ -3,6 +3,8 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using IncidentReporting.Domain.Common;
 using IncidentReporting.Domain.Entities;
+using IncidentReporting.Domain.DomainEvents;
+using IncidentReporting.Application.Notifications;
 
 namespace IncidentReporting.Infrastructure.Data
 {
@@ -31,7 +33,7 @@ namespace IncidentReporting.Infrastructure.Data
                 .HasKey(x => x.Id);
 
             modelBuilder.Entity<IncidentHistory>()
-                .Property(x => x.ChangedAt)
+                .Property(x => x.CreatedAt)
                 .IsRequired();
         }
 
@@ -66,7 +68,10 @@ namespace IncidentReporting.Infrastructure.Data
             // Publish via MediatR
             foreach (var domainEvent in allEvents)
             {
-                await _mediator.Publish(domainEvent, cancellationToken);
+                if (domainEvent is IncidentClosedEvent closedEvt)
+    {
+        await _mediator.Publish(new IncidentClosedNotification(closedEvt), cancellationToken);
+    }
             }
         }
     }

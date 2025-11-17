@@ -1,52 +1,34 @@
 using MediatR;
-using IncidentReporting.Domain.DomainEvents;
-using IncidentReporting.Domain.Entities;
 using IncidentReporting.Application.Interfaces;
+using IncidentReporting.Application.Notifications;
+using IncidentReporting.Domain.Entities;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace IncidentReporting.Application.EventHandlers
 {
-    /// <summary>
-    /// Writes an audit entry whenever an incident is closed.
-    /// </summary>
-    public class CreateIncidentHistoryHandler : INotificationHandler<IncidentClosedEvent>
+    public class CreateIncidentHistoryHandler 
+        : INotificationHandler<IncidentClosedNotification>   // ✔ FIXED
     {
-        private readonly IIncidentRepository _repo;
+        private readonly IIncidentHistoryRepository _historyRepository;
 
-        public CreateIncidentHistoryHandler(IIncidentRepository repo)
+        public CreateIncidentHistoryHandler(IIncidentHistoryRepository historyRepository)
         {
-            _repo = repo;
+            _historyRepository = historyRepository;
         }
 
-        public async Task Handle(IncidentClosedEvent notification, CancellationToken ct)
+        public async Task Handle(IncidentClosedNotification notification, CancellationToken cancellationToken)
         {
-            // Load the incident (includes existing status)
-            var incident = await _repo.GetAsync(notification.IncidentId, ct);
+            var evt = notification.DomainEvent;
 
-            if (incident == null)
-                return; // Should not happen but safe check
+            var history = new IncidentHistory(
+                incidentId: evt.IncidentId,
+                action: "Closed",
+                description: $"Incident closed with resolution: {evt.Resolution}"
+            );
 
-            // Create a history entry
-            var history = new IncidentHistory
-            {
-                IncidentId = notification.IncidentId,
-                FromStatus = IncidentStatus.InProgress,
-                ToStatus = IncidentStatus.Closed,
-                ChangedBy = "system",
-                ChangedAt = notification.ClosedAt
-            };
-
-            // Use UpdateAsync so EF tracks it
-            await _repo.UpdateAsync(incident, ct);
-
-            // Insert the history (your repo implementation will handle DbSet)
-            // If you create a separate IHistoryRepository, adjust here.
-            // For now, EF context in repository will detect added entries.
-
-            // We need direct DbContext access or we can extend repository later.
-            // For now, write to console (acts as audit mock)
-            Console.WriteLine($"[AUDIT] Incident {notification.IncidentId} closed at {notification.ClosedAt}");
-
-            await _repo.SaveChangesAsync(ct);
+            await _historyRepository.AddAsync(history, cancellationToken);
+            await _historyRepository.SaveChangesAsync(cancellationToken);
         }
     }
 }

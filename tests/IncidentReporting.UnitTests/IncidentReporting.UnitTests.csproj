@@ -23,4 +23,9 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\IncidentReporting.Domain\IncidentReporting.Domain.csproj" />
+    <ProjectReference Include="..\..\src\IncidentReporting.Application\IncidentReporting.Application.csproj" />
+  </ItemGroup>
+
 </Project>

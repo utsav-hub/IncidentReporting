@@ -1,0 +1,16 @@
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\obj\Debug\net9.0\IncidentReporting.Application.csproj.AssemblyReference.cache
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\obj\Debug\net9.0\IncidentReporting.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\obj\Debug\net9.0\IncidentReporting.Application.AssemblyInfoInputs.cache
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\obj\Debug\net9.0\IncidentReporting.Application.AssemblyInfo.cs
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\obj\Debug\net9.0\IncidentReporting.Application.csproj.CoreCompileInputs.cache
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\obj\Debug\net9.0\IncidentReporting.Application.sourcelink.json
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\bin\Debug\net9.0\IncidentReporting.Application.deps.json
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\bin\Debug\net9.0\IncidentReporting.Application.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\bin\Debug\net9.0\IncidentReporting.Application.pdb
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\bin\Debug\net9.0\IncidentReporting.Domain.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\bin\Debug\net9.0\IncidentReporting.Domain.pdb
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\obj\Debug\net9.0\Incident.EE746188.Up2Date
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\obj\Debug\net9.0\IncidentReporting.Application.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\obj\Debug\net9.0\refint\IncidentReporting.Application.dll
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\obj\Debug\net9.0\IncidentReporting.Application.pdb
+D:\Utsav\Projects\IncidentReportingSystem\src\src\IncidentReporting.Application\obj\Debug\net9.0\ref\IncidentReporting.Application.dll

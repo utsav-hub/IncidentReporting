@@ -11,7 +11,7 @@ namespace IncidentReporting.Domain.DomainEvents
     /// will be responsible for dispatching implementations of this interface
     /// to application/infrastructure handlers (for example via MediatR).
     /// </summary>
-    public interface IDomainEvent
+    public interface IDomainEvent 
     {
         // Marker only - no members required.
     }
