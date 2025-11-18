@@ -41,6 +41,7 @@ ScaffoldingReadMe.txt
 *~
 CodeCoverage/
 
+
 # MSBuild Binary and Structured Log
 *.binlog
 
@@ -52,3 +53,5 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+INTERVIEW_GUIDE.md
