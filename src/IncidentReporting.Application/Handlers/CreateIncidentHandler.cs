@@ -9,10 +9,12 @@ namespace IncidentReporting.Application.Handlers
     public class CreateIncidentHandler : IRequestHandler<CreateIncidentCommand, IncidentResponseDto>
     {
         private readonly IIncidentRepository _repo;
+        private readonly INotificationService _notificationService;
 
-        public CreateIncidentHandler(IIncidentRepository repo)
+        public CreateIncidentHandler(IIncidentRepository repo, INotificationService notificationService)
         {
             _repo = repo;
+            _notificationService = notificationService;
         }
 
         public async Task<IncidentResponseDto> Handle(CreateIncidentCommand request, CancellationToken ct)
@@ -24,6 +26,15 @@ namespace IncidentReporting.Application.Handlers
 
             await _repo.AddAsync(incident, ct);
             await _repo.SaveChangesAsync(ct);
+
+            // Create notification for the user
+            await _notificationService.CreateNotificationAsync(
+                userId: request.UserId,
+                title: "Incident Created Successfully",
+                message: $"Your incident '{incident.Title}' has been created and is now being tracked.",
+                type: "Success",
+                incidentId: incident.Id
+            );
 
             return new IncidentResponseDto
             {

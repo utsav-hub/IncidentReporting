@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import NotificationBell from "../NotificationBell";
 
 export default function Navbar() {
   const { user, logout, isAuthenticated } = useAuth();
@@ -22,6 +23,7 @@ export default function Navbar() {
       <div className="flex items-center gap-3">
         {isAuthenticated && user && (
           <>
+            <NotificationBell />
             <div className="flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-lg">
               <span className="text-sm font-medium text-gray-700">
                 👤 {user.username}

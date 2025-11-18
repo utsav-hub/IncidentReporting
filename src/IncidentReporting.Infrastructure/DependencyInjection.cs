@@ -32,6 +32,7 @@ namespace IncidentReporting.Infrastructure
 
             // Service registrations
             services.AddScoped<Application.Interfaces.IAuthService, Services.AuthService>();
+            services.AddSingleton<Application.Interfaces.INotificationService, Services.MockNotificationService>();
 
             return services;
         }
