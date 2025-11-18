@@ -38,8 +38,11 @@ const transformRequest = (data: any): any => {
   return transformed;
 };
 
+// Get API URL from environment variable (Vite requires VITE_ prefix)
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5268/api";
+
 export const api = axios.create({
-  baseURL: "http://localhost:5268/api", // .NET API HTTP port (use HTTP for local development)
+  baseURL: API_URL,
   headers: { "Content-Type": "application/json" },
 });
 

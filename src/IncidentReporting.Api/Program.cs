@@ -177,8 +177,10 @@ using (var scope = app.Services.CreateScope())
 // Use global exception middleware (handles validation, concurrency, etc.)
 app.UseMiddleware<ExceptionMiddleware>();
 
-// Swagger (enable only in development)
-if (app.Environment.IsDevelopment())
+// Swagger - enable in Development or if explicitly enabled via configuration
+var enableSwagger = app.Environment.IsDevelopment() || 
+                    builder.Configuration.GetValue<bool>("EnableSwagger", false);
+if (enableSwagger)
 {
     app.UseSwagger();
     app.UseSwaggerUI();
